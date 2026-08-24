@@ -20,6 +20,7 @@ while True:
     print("5. Listar Itens na Prateleira")
     print("6. Listar Empréstimos")
     print("7. Devolver empréstimo")
+    print("8. Listar Usuários")
     print("0. Sair")
 
     opcao = input("Escolha uma opção:")
@@ -28,7 +29,7 @@ while True:
         ano = int(input("Ano: "))
         autor = input("Autor: ")
         num_paginas = int(input("Páginas: "))
-        Livro = (titulo, ano, autor, num_paginas)
+        Livro = Livro(titulo, ano, autor, num_paginas)
         prateleira_a.adicionar_item(Livro)
         print("Livro adicionado com sucesso!")
 
@@ -43,7 +44,7 @@ while True:
     elif opcao == "3":
         nome = input("Digite seu nome:")
         cpf = input("Digite seu CPF:")
-        usuario = usuario(nome, cpf)
+        usuario = Usuario(nome, cpf)
         usuarios.append(usuario)
         print("Usuário cadastrado com sucesso!")
 
@@ -53,15 +54,15 @@ while True:
         else:
             print("\nUsuários disponíveis:")
             for pos, u in enumerate(usuarios):
-                print("f{pos} - {u.nome}")
+                print(f"{pos} - {u.nome}")
+                
             pos_u = int(input("Digite o número do usuário"))
             print("\nItens disponíveis na prateleira:")
             for pos, item in enumerate(prateleira_a.itens):
                 print(f"{pos} - {item.titulo}")
             pos_i = int(input("Digite o número do item: "))
 
-            data = input("Data do empréstimo: ")
-            emp = Emprestimo(usuarios[pos_u], prateleira_a.itens[pos_i], data)
+            emp = Emprestimo(usuarios[pos_u], prateleira_a.itens[pos_i])
             
             if emp.realizar_emprestimo():
                 emprestimos.append(emp)
@@ -88,7 +89,11 @@ while True:
               emprestimo_selecionado = emprestimos[dev]
               emprestimo_selecionado.finalizar_emprestimo()
               emprestimos.pop(dev)
-                   
+    elif opcao == "8":
+        for Usuario in usuarios:
+            print(f"Nome: {Usuario.nome}")
+            print(f"Cpf: {Usuario.cpf}")
+            print("---------------------")               
          
     
     elif opcao == "0":
