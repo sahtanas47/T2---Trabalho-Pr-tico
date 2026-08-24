@@ -5,6 +5,7 @@ class Livro(Item):
         super().__init__(titulo, ano)
         self.autor = autor
         self.num_paginas = num_paginas
+        
     def exibir_detalhes(self):
         base = super().exibir_detalhes()
         return f"[LIVRO]{base} | Autor: {self.autor} | Páginas: {self.paginas}"
