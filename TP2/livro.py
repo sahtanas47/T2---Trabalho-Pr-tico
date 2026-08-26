@@ -8,4 +8,4 @@ class Livro(Item):
         
     def exibir_detalhes(self):
         base = super().exibir_detalhes()
-        return f"[LIVRO]{base} | Autor: {self.autor} | Páginas: {self.paginas}"
+        return f"[LIVRO]{base} | Autor: {self.autor} | Páginas: {self.num_paginas}"
