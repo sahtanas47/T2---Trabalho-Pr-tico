@@ -27,15 +27,15 @@ usuarios.append(usuario_b)
 
 while True:
     print(colored("\n---🕸️ MENU DA BIBLIOTECA ---", "red" ))
-    print("1. Cadastrar Livro")
-    print("2. Cadastrar Hq")
-    print("3. Cadastrar Usuário")
-    print("4. Realizar Empréstimo")
-    print("5. Listar Itens na Prateleira")
-    print("6. Listar Empréstimos")
-    print("7. Devolver empréstimo")
-    print("8. Listar Usuários")
-    print("0. Sair")
+    print(colored("1. Cadastrar Livro", "blue"))
+    print(colored("2. Cadastrar Hq", "red"))
+    print(colored("3. Cadastrar Usuário", "blue"))
+    print(colored("4. Realizar Empréstimo", "red"))
+    print(colored("5. Listar Itens na Prateleira", "blue"))
+    print(colored("6. Listar Empréstimos", "red"))
+    print(colored("7. Devolver empréstimo", "blue"))
+    print(colored("8. Listar Usuários", "red"))
+    print(colored("0. Sair", "yellow"))
 
     opcao = input("Escolha uma opção: ")
     if opcao == "1":
@@ -43,28 +43,29 @@ while True:
         ano = int(input("Ano: "))
         autor = input("Autor: ")
         num_paginas = int(input("Páginas: "))
-        Livro = Livro(titulo, ano, autor, num_paginas)
+        Livro = Livro(titulo, ano, num_paginas, autor)
         prateleira_a.adicionar_item(Livro)
-        print("Livro adicionado com sucesso!")
+        print("🕷 Livro adicionado com sucesso!")
 
     elif opcao == "2":
         titulo = input("Título da HQ: ")
         ano = int(input("Ano: "))
         edicao = int(input("Edição nº: "))
-        HQ = HQ(titulo, ano, edicao)
+        autor = input("Autor: ")
+        HQ = HQ(titulo, ano, edicao, autor)
         prateleira_a.adicionar_item(HQ)
-        print("HQ adicionada com sucesso!")
+        print("🕷 HQ adicionada com sucesso!")
 
     elif opcao == "3":
         nome = input("Digite seu nome: ")
         cpf = input("Digite seu CPF:")
         usuario = Usuario(nome, cpf)
         usuarios.append(usuario)
-        print("Usuário cadastrado com sucesso!")
+        print("🕸Usuário cadastrado com sucesso!")
 
     elif opcao == "4":
         if not usuarios or not prateleira_a.itens:
-            print("É preciso ter pelo menos 1 usuário e 1 item cadastrado!")
+            print("🕸️ྀི É preciso ter pelo menos 1 usuário e 1 item cadastrado!")
         else:
             print("\nUsuários disponíveis:")
             for pos, u in enumerate(usuarios):
@@ -80,25 +81,25 @@ while True:
             
             if emp.realizar_emprestimo():
                 emprestimos.append(emp)
-                print("Empréstimo realizado com sucesso!")
+                print("🕷Empréstimo realizado com sucesso!")
             else:
-                print("Este item já está emprestado!")
+                print("🕸Este item já está emprestado!")
 
     elif opcao == "5":
-            print("\nItens na Prateleira A1:")
+            print("\n🕸️ྀི Itens na Prateleira A1:")
             prateleira_a.listar_itens()
     
     elif opcao == "6":
         if not emprestimos:
-            print("Não há nenhum empréstimo aqui!")
+            print("🕸️๋࣭ ⭑Não há nenhum empréstimo aqui!")
         else:
-            print("\nLista de Empréstimos:")
+            print("\n🕸Lista de Empréstimos:")
             for emp in emprestimos:
                 print(emp.resumir())
 
     elif opcao == "7":
          if not emprestimos:
-              print("Não há nenhum empréstimo realizado!")
+              print("🕷 Não há nenhum empréstimo realizado!")
          else:
               for posi, emp in enumerate(emprestimos):
                    print(f"{posi} - {emp.usuario.nome} está com {emp.item.titulo}")
