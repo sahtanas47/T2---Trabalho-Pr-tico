@@ -9,7 +9,7 @@ from termcolor import colored, cprint
 
 minha_biblioteca = Biblioteca("Biblioteca IFMG")
 prateleira_a = minha_biblioteca.criar_prateleira("A1")
-livro_a = Livro("Dom Casmurro", 1899, "Machado de Assis", 256)
+livro_a = Livro("Dom Casmurro", 1899, 256, "Machado de Assis)
 hq_a = HQ("Batman: A Piada Mortal", 1988, 1)
 livro_b = Livro("Dom Quixote", 1605, "Miguel de Cervantes", 863 )
 hq_b = HQ("Ultimate Wolverine", 2026, 2)
