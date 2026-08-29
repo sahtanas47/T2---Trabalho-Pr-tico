@@ -9,8 +9,5 @@ class Prateleira:
         self.itens.append(item)
 
     def listar_itens(self):
-        if not self.itens:
-            print(f"  (Prateleira {self.ID} está vazia)")
-        else:
             for item in self.itens:
                 print(f"  - {item.exibir_detalhes()}")
