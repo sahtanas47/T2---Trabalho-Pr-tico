@@ -9,13 +9,14 @@ from termcolor import colored, cprint
 
 minha_biblioteca = Biblioteca("Biblioteca IFMG")
 prateleira_a = minha_biblioteca.criar_prateleira("A1")
-livro_a = Livro("Dom Casmurro", 1899, 256, "Machado de Assis)
-hq_a = HQ("Batman: A Piada Mortal", 1988, 1)
+prateleira_b = minha_biblioteca.criar_prateleira("B1")
+livro_a = Livro("Dom Casmurro", 1899, 256, "Machado de Assis")
+hq_a = HQ("Batman: A Piada Mortal", 1988, 1, "Desconhecido")
 livro_b = Livro("Dom Quixote", 1605, "Miguel de Cervantes", 863 )
-hq_b = HQ("Ultimate Wolverine", 2026, 2)
+hq_b = HQ("Ultimate Wolverine", 2026, 2, "Desconhecido")
 
 prateleira_a.adicionar_item(livro_a)
-prateleira_a.adicionar_item(hq_a)
+prateleira_b.adicionar_item(hq_a)
 
 usuarios = []
 emprestimos = []
@@ -86,8 +87,13 @@ while True:
                 print("🕸Este item já está emprestado!")
 
     elif opcao == "5":
-            print("\n🕸️ྀི Itens na Prateleira A1:")
-            prateleira_a.listar_itens()
+            escolha = input("Escolha qa prateleira desejada:")
+            if escolha == ("B1"):
+                 print("🕸️ྀི Itens na Prateleira B1")
+                 prateleira_b.listar_itens()
+            else:
+             print("\n🕸️ྀི Itens na Prateleira A1:")
+             prateleira_a.listar_itens()
     
     elif opcao == "6":
         if not emprestimos:
@@ -113,7 +119,7 @@ while True:
         else:
             for usuario in usuarios:
                 print(f"O usuário {usuario.nome} de CPF {usuario.cpf} está cadastrado!")
-                print("---------------------")          
+                print("---------------------")       
          
     
     elif opcao == "0":
@@ -121,3 +127,5 @@ while True:
             break
     else:
             print("Opção inválida! Tente novamente.")
+         
+
