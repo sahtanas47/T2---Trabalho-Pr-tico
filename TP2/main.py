@@ -16,7 +16,7 @@ livro_b = Livro("Dom Quixote", 1605, "Miguel de Cervantes", 863 )
 hq_b = HQ("Ultimate Wolverine", 2026, 2, "Desconhecido")
 
 prateleira_a.adicionar_item(livro_a)
-prateleira_b.adicionar_item(hq_a)
+prateleira_a.adicionar_item(hq_b)
 
 usuarios = []
 emprestimos = []
@@ -87,9 +87,9 @@ while True:
                 print("🕸Este item já está emprestado!")
 
     elif opcao == "5":
-            escolha = input("Escolha qa prateleira desejada:")
+            escolha = input("Escolha a prateleira desejada:")
             if escolha == ("B1"):
-                 print("🕸️ྀི Itens na Prateleira B1")
+                 print("🕸️ྀི Itens na Prateleira B1:")
                  prateleira_b.listar_itens()
             else:
              print("\n🕸️ྀི Itens na Prateleira A1:")
@@ -124,6 +124,9 @@ while True:
     
     elif opcao == "0":
             print("Saindo do programa...")
+            break
+    else:
+            print("Opção inválida! Tente novamente.")
             break
     else:
             print("Opção inválida! Tente novamente.")
