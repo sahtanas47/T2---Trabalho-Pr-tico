@@ -88,9 +88,9 @@ while True:
                 if emp.realizar_emprestimo():
                     emprestimos.append(emp)
                     print(colored("🕷Empréstimo realizado com sucesso!", "red"))
-                    continue
                 else:
                     print(colored("🕸Este item já está emprestado!", "yellow", "on_white"))
+                    continue
 
             elif escolha_a == "A1":
              print(colored("Itens disponíveis na prateleira A1:", "blue", "on_white"))
